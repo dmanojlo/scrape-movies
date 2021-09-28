@@ -1,7 +1,6 @@
 import scrapy
 import random
 import os
-from pathlib import Path
 
 class TopRatedMovies(scrapy.Spider):
 
@@ -15,9 +14,9 @@ class TopRatedMovies(scrapy.Spider):
 
     start_urls = ['https://www.imdb.com/chart/top/']
 
-    custom_settings = { 'FEEDS': {Path('result.json'): {'format': 'json', 'overwrite': True}}}
+    custom_settings = { 'FEEDS': {'logs/result.json': {'format': 'json', 'overwrite': True}}}
 
     def parse(self, response):
         a = random.randint(0,249)
         movie_name = response.css('.titleColumn a::text')[a].get()
-        yield {'movie_name': movie_name, 'jobid': Path()}
+        yield {'movie_name': movie_name, 'jobid': os.getcwd()}
