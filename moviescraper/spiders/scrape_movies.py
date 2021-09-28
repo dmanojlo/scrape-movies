@@ -14,7 +14,7 @@ class TopRatedMovies(scrapy.Spider):
 
     start_urls = ['https://www.imdb.com/chart/top/']
 
-    custom_settings = { 'FEEDS': {os.makedirs('proj'): {'format': 'json', 'overwrite': True}}}
+    custom_settings = { 'FEEDS': {os.makedirs('proj/result.json'): {'format': 'json', 'overwrite': True}}}
 
     def parse(self, response):
         a = random.randint(0,249)
