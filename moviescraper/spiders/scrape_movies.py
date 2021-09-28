@@ -15,7 +15,7 @@ class TopRatedMovies(scrapy.Spider):
     start_urls = ['https://www.imdb.com/chart/top/']
 
 
-    filename = "/bar/result.json"
+    filename = "bar/result.json"
     custom_settings = { 'FEEDS': {os.makedirs(filename): {'format': 'json', 'overwrite': True}}}
 
     def parse(self, response):
